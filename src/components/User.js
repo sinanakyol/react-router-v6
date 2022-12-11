@@ -16,15 +16,21 @@ function User() {
 
   return (
     <div>
-      <h1>User Detail</h1>
+      <h2>User Detail</h2>
       {loading && <div>Loading...</div>}
       {!loading && <code>{JSON.stringify(user)}</code>}
       <br />
       <br />
 
-      <Link to={`/users/${parseInt(id) + 1}`}>
-        Next User ({parseInt(id) + 1})
-      </Link>
+      <div>
+        {parseInt(id) < 10 ? (
+          <Link to={`/users/${parseInt(id) + 1}`}>
+            Next User {parseInt(id) + 1}{" "}
+          </Link>
+        ) : (
+          <Link to={`/users/${1}`}> Turn Head </Link>
+        )}
+      </div>
     </div>
   );
 }
