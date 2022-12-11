@@ -4,7 +4,6 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Users from "./components/Users";
 import ErrorPage from "./components/ErrorPage";
-import User from "./components/User";
 
 function App() {
   return (
@@ -30,9 +29,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="users" element={<Users />}>
-          <Route path=":id" element={<User />} />
-        </Route>
+        <Route path="users/*" element={<Users />} />
+        {/* "User" componentini "Users" altında burada tanımlayabiliriz. Burada tanımlarsak /* ifadesi kullanılmaz. "Outlet" yine Users.js içerisinde kullanılır. */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>

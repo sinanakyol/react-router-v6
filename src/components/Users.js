@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
+import User from "./User";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -25,6 +26,10 @@ function Users() {
       </ul>
 
       {/* Bu sayfa içerisinde istediğimiz bir kullanıcı bilgisini User komponenti ile sunmak istediğimizde, User komponentini kullanmadan, Users komponenti içerisinde kullacını bilgisinin görüntülenmesini istediğimiz yere Outlet  komponentini ekleyerek işlem yapabiliriz. Gerekli yönlendirme route işlemlerini yaptığımız alandan yapılacaktır. */}
+
+      <Routes>
+        <Route path=":id" element={<User />} />
+      </Routes>
 
       <Outlet />
     </div>
